@@ -1,0 +1,86 @@
+ubuntu 16.04
+
+一、JDK安装
+1.官网下载对应版本的jdk
+例如下载了jdk-8u5-linux-i586.gz
+
+2.进入下载目录
+sudo mkdir /usr/lib/jvm/	#如果目录不存在，则创建它
+sudo tar zxvf jdk-8u5-linux-i586.gz -C /usr/lib/jvm/	#解压并拷贝到指定目录
+
+3.加入到环境变量
+sudo gedit /etc/profile		#使用gedit编辑/etc/profile
+
+在文件末尾加入
+export JAVA_HOME=/usr/lib/jvm/java1.8.0_05
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH={JAVA_HOME}/bin:$PATH
+
+4.配置默认的jdk
+# update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 300
+# update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 300
+# update-alternatives –config java
+
+5.测试安装结果
+java -version
+
+二、git安装
+sudo apt-get install git
+sudo apt-get install gitg #安装gitg图形工具
+
+配置git
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+git config --global #查看所有的配置
+
+三、安装中文输入法
+包括两部分fcitx和输入法
+可以这样理解：fcitx是平台，输入法是插件，输入法运行在fcitx平台上
+
+1.首先需要安装新的fcitx
+可以通过ubuntu的软件中心安装
+
+或者添加软件源ppa:fcitx-team/nightly，
+然后sudo apt-get update
+再通过ubuntu的软件中心安装或者命令安装：sudo apt-get install fcitx 
+
+2.使用google pinyin或者搜狗拼音
+
+搜狗拼音需要到搜狗官网下载对应软件，通过sudo dpkg -i xxx.deb命令安装
+
+
+中间会因为依赖安装失败，可以安装如下依赖试试：TODO
+
+
+四、安装AndroidStudio
+官网说ubuntu16.04是64位操作系统，但是软件仍需要使用某些32位的依赖来保证运行，但是安装依赖失败，百度一下，应该使用下面的依赖
+
+五、virtualbox的安装
+公司提供的xp镜像和安装的密钥，建议使用xp，占用资源少
+
+首先区分i386.deb和amd64.deb两种类型的安装包的区别
+
+前者对应intel处理器支持32位操作系统，后者支持64位操作系统，所有选择64位的amd64.deb下载即可
+
+安装过程中仍然会失败，还是依赖问题，所有你懂的 TODO
+
+另外安装并运行xp镜像的时候，还是失败，是因为需要禁止安全启动模式： Disable Secure Boot，重启系统，按F2进入Boise，diable掉该项即可
+
+然后就是安装拓展包，要下载对应的版本，之后是添加当前用户到virtual box的用户群中，不让U盘使识别可能有问题
+
+六、adb命令安装
+sudo apt-get adb
+
+七、使用chrome浏览器
+1.添加软件源
+2.添加认证
+3.下载并校验，然后安装
+
+3可能会失败，需要替换对应的2
+
+
+八、host修改，让chrome可以登录账户
+
+
