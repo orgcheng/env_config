@@ -1,0 +1,97 @@
+一、Git配置
+1.基本配置
+orgcheng@os:~$ git config --global user.name chengzhen
+orgcheng@os:~$ git config --global user.email chengzhen@gionee.com
+
+2.查看配置
+#查看当前的配置项目  
+orgcheng@os:~$ git config --list
+user.name=chengzhen
+user.email=chengzhen@gionee.com
+diff.tool=meld
+diff.external=git-meld
+merge.tool=meld
+alias.diffall=git-diffall
+
+
+其实读取的是~/.gitconfig文件
+orgcheng@os:~$ cat .gitconfig 
+[user]
+	name = chengzhen
+	email = chengzhen@gionee.com
+[diff]
+	tool = meld
+	external = git-meld
+[merge]
+	tool = meld
+[alias]
+	diffall = git-diffall
+	
+	
+3.安装gitg或者gitk，查看版本信息
+安装gitg，使用时出现闪退，应该是缺少相应的依赖
+我之前卸载了，后来不知道安装了什么依赖，重新安装gitg时，就可以用了
+
+
+4.配置meld
+先配置
+orgcheng@os:~$ git config --global diff.tool meld
+orgcheng@os:~$ git config --global merge.tool meld
+
+新建文件/opt/git-meld,添加下面内容
+#!/bin/sh
+meld $2 $5
+
+赋予可以执行权限sudo chmod +x 
+
+添加软连接，使git-meld是可执行的命令
+sudo ln -s /opt/git-meld /bin/git-meld 
+
+配置diff.external
+git config --global diff.external git-meld
+
+当在git管理的项目中执行git diff, 会自动使用meld对比所有修改的文件
+---------------------------------------------------------------------
+
+
+同理配置alias.diffall
+sudo ln -s /opt/git-diffall /bin/git-diffall  #从参考连接1中找到git-diffall文件，拷贝到本地
+git config --global alias.diffall git-diffall
+
+参考连接
+1.http://blog.csdn.net/androidwifi/article/details/45125119
+2.http://www.cnblogs.com/maydow/p/5295209.html
+
+
+
+
+
+============================================================================
+==============================分割线========================================
+============================================================================
+
+
+# 64位ubuntu安装Android Studio之后，需要安装下面的依赖
+sudo apt-get install libz1 libncurses5 libbz2-1.0:i386 libstdc++6 libbz2-1.0
+
+# gitg闪退、aapt编译资源异常推出
+sudo apt-get install lib32z1 lib32ncurses5 lib32stdc++6		
+
+
+
+
+
+参考：
+From:https://developer.android.com/studio/troubleshoot.html#project_sync_issues
+If you are running Android Studio on a 64-bit Linux machine, you may need to install some specific libraries, as follows.
+
+If you are running a 64-bit version of Ubuntu, you need to install some 32-bit libraries with the following command:
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 lib32bz2-1.0
+
+But not work
+
+From:https://askubuntu.com/questions/637113/unable-to-locate-package-lib32bz2-1-0
+after search, the following command work:
+sudo apt-get install libz1 libncurses5 libbz2-1.0:i386 libstdc++6 libbz2-1.0
+
+
