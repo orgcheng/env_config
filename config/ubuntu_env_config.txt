@@ -26,14 +26,7 @@ export PATH={JAVA_HOME}/bin:$PATH
 java -version
 
 二、git安装
-sudo apt-get install git
-sudo apt-get install gitg #安装gitg图形工具
-
-配置git
-git config --global user.name "Your Name"
-git config --global user.email "email@example.com"
-
-git config --global #查看所有的配置
+参考git_config.log
 
 三、安装中文输入法
 包括两部分fcitx和输入法
@@ -70,6 +63,9 @@ git config --global #查看所有的配置
 
 然后就是安装拓展包，要下载对应的版本，之后是添加当前用户到virtual box的用户群中，不让U盘使识别可能有问题
 
+屏幕自适应、U盘识别，有时候需要安装VBoxGuestAdditions.iso，需要下载对应的版本
+http://download.virtualbox.org/virtualbox/5.0.40/
+
 六、adb命令安装
 sudo apt-get adb
 
@@ -82,5 +78,7 @@ sudo apt-get adb
 
 
 八、host修改，让chrome可以登录账户
+2017 Google hosts 持续更新【更新于:2017-09-02】
+https://laod.cn/hosts/2017-google-hosts.html/comment-page-6
 
 

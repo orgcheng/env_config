@@ -1,0 +1,19 @@
+1.Fast Scrolling with RecyclerView
+链接https://android.jlelse.eu/fast-scrolling-with-recyclerview-2b89d4574688
+滑动时侧边栏提示
+
+2.Downloadable Fonts with Support Library
+链接https://android.jlelse.eu/downloadable-fonts-with-support-library-31ba51848655
+节省apk大小，每种字体，系统中只有一个实例
+安全性能更改，因为iconfy库就是利用字体实现的
+
+
+Understanding the performance benefits of ConstraintLayout
+https://android-developers.googleblog.com/2017/08/understanding-performance-benefits-of.html
+
+
+Google releases source for Google I/O 2017 for Android
+https://android-developers.googleblog.com/2017/08/google-releases-source-for-google-io.html
+
+android-dev-101-things-every-beginner-must-know
+https://www.whatsthatlambda.com/android/android-dev-101-things-every-beginner-must-know
