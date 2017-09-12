@@ -1,3 +1,4 @@
+=================Weekly-273=================
 1.Fast Scrolling with RecyclerView
 链接https://android.jlelse.eu/fast-scrolling-with-recyclerview-2b89d4574688
 滑动时侧边栏提示
@@ -6,6 +7,54 @@
 链接https://android.jlelse.eu/downloadable-fonts-with-support-library-31ba51848655
 节省apk大小，每种字体，系统中只有一个实例
 安全性能更改，因为iconfy库就是利用字体实现的
+
+
+=================Weekly-274=================
+1.Time for non-Time Lords
+– Part 1
+链接https://blog.stylingandroid.com/time-for-non-time-lords-part-1/
+使用需要提供时间参数的API时，一般都不清楚时间的单位
+对于kotlin，可以自己拓展方法: 
+View.setDuration(1, TimeUnit.SECONDS)
+
+否则，可以通过方法调用获取参数，而调用的方法名称，指明了时间单位:
+View.setDuration(TimeUnit.SECONDS.toMillis(1));
+
+– Part 2
+罗嗦了一大堆，最终是推荐使用Jake Wharton's 库：ThreeTenAB(https://github.com/JakeWharton/ThreeTenABP)
+为什么不是使用JSR-310和Joda-Time on Android？
+JSR-310是Java 8引入的，用来体会Date和Calendar,位于java.time.*包下，不兼容以前的jdk
+Joda-Time的方法数和大小，不适合Android
+
+2.How Butterknife library works its magic.
+链接http://shikherverma.com/blog/Source-Code-Diving
+
+3.架构
+链接https://medium.com/exploring-android/on-the-journey-from-legacy-code-to-clean-architecture-rebuilding-the-buffer-android-composer-63a1b55cc53f
+
+4.Exploring Background Execution Limits on Android Oreo
+链接https://medium.com/exploring-android/exploring-background-execution-limits-on-android-oreo-ab384762a66c
+Android O的一些改变：这里只说了service和broadcast
+service:限制了程序后台服务的运行-改成前台或者使用其他的替代方案
+broadcast:静态注册的的广播默认是隐式的注册，但是针对一些特别的广播除外
+
+
+Intelligent Job-Scheduling
+https://developer.android.com/topic/performance/scheduling.html
+
+
+
+
+
+5.The RxJava Repository Pattern
+链接https://www.bignerdranch.com/blog/the-rxjava-repository-pattern/
+使用RXJava & Retrofit进行网络请求时，如何避免因屏幕旋转导致的重复请求
+
+6.evolution-of-the-repository-pattern
+http://hannesdorfmann.com/android/evolution-of-the-repository-pattern
+
+
+
 
 
 Understanding the performance benefits of ConstraintLayout
